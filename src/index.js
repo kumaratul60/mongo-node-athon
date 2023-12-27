@@ -6,13 +6,17 @@ import connectDB from "./db/index.js";
 
 dotenv.config({ path: "./env" });
 
+connectDB()
+    .then(() => {
+        app.listen(process.env.PORT || 8000, () => {
+            console.log(`Server is running: ${process.env.PORT}`);
+        });
+    })
+    .catch((err) => console.log("Mongo connection failed: " + err));
 
-
-
-connectDB();
+// connectDB();
 
 // ;(async()=>{})() // better appoach for cleaning purpose
-
 
 /*
 import express from 'express';
@@ -35,4 +39,3 @@ const app = express();
     }
 })();
 */
-
