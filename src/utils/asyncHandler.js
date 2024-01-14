@@ -5,7 +5,7 @@
 
 
 const asyncHandlerPromises = (requestHanlder) => {
-    (req, res, next) => {
+    return (req, res, next) => {
         Promise.resolve(requestHanlder(req, res, next)).catch((err) => next(err));
     };
 };
@@ -24,3 +24,4 @@ const asyncHanlder = (fn) => async (req, res, next, err) => {
 };
 
 export { asyncHandlerPromises, asyncHanlder };
+
