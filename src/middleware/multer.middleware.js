@@ -19,3 +19,5 @@ const upload = multer({
     // es6
     storage,
 });
+
+export default upload;
